@@ -27,11 +27,11 @@ public:
 	void DidExplode_Implementation();
 
 protected:
-	UPROPERTY(EditDefaultsOnly, VisibleAnywhere, Category = "Bomb", meta = (BlueprintProtected = "true"))
+	UPROPERTY(EditDefaultsOnly, Category = "Bomb", meta = (BlueprintProtected = "true"))
 	float TimeToExplode;
 
 private:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Bomb", meta = (BlueprintProtected = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Bomb", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BombMesh;
 
 	UPROPERTY(VisibleAnywhere, Category = "Bomb")

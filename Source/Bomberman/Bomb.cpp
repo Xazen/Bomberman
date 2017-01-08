@@ -42,5 +42,5 @@ void ABomb::Explode()
 	FString BombDebugString = GetName();
 	FString DestroySuccess = (Destroy() ? "success" : "failed");
 
-	UE_LOG(LogClass, Log, TEXT("%s will explode: %s"), *BombDebugString, DestroySuccess);
+	UE_LOG(LogClass, Log, TEXT("%s will explode: %s"), *BombDebugString, *DestroySuccess);
 }
