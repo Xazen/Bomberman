@@ -3,6 +3,7 @@
 #include "Bomberman.h"
 #include "Kismet/HeadMountedDisplayFunctionLibrary.h"
 #include "BombermanCharacter.h"
+#include "Bomb.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ABombermanCharacter
@@ -69,4 +70,24 @@ void ABombermanCharacter::MoveVertically(float Value)
         // add movement in that direction
         AddMovementInput(Direction, Value);
     }
+}
+
+void ABombermanCharacter::PlaceBomb()
+{
+	if (Bomb != NULL)
+	{
+		UWorld* const World = GetWorld();
+		if (World)
+		{
+			FActorSpawnParameters SpawnParams;
+			SpawnParams.Owner = this;
+			SpawnParams.Instigator = Instigator;
+            SpawnParams.Template = Cast<AActor>(Bomb);
+
+            FVector SpawnLocation = GetActorLocation();
+
+            FRotator SpawnRotation = FRotator::ZeroRotator;
+            World->SpawnActor<ABomb>(Bomb, SpawnLocation, SpawnRotation, SpawnParams);
+		}
+	}
 }

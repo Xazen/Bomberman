@@ -18,14 +18,17 @@ class ABombermanCharacter : public ACharacter
 public:
 	ABombermanCharacter();
 
-public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-    void MoveHorizontally(float Value);
-
+	void MoveHorizontally(float Value);
 	void MoveVertically(float Value);
+    void PlaceBomb();
+
+protected:
+    UPROPERTY(EditAnywhere, Category="Bomb")
+    TSubclassOf<class ABomb> Bomb;
 };
 

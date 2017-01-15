@@ -22,6 +22,8 @@ void ABombermanPlayerController::SetupInputComponent()
 
     InputComponent->BindAction("Jump", IE_Pressed, this, &ABombermanPlayerController::Jump);
     InputComponent->BindAction("Jump", IE_Released, this, &ABombermanPlayerController::StopJumping);
+
+    InputComponent->BindAction("Use", IE_Pressed, this, &ABombermanPlayerController::Use);
 }
 
 void ABombermanPlayerController::MoveHorizontally(float Value)
@@ -54,10 +56,17 @@ void ABombermanPlayerController::Jump()
 void ABombermanPlayerController::StopJumping()
 {
     ACharacter* const PlayerPawn = Cast<ACharacter>(GetPawn());
+    if (PlayerPawn)
     {
-        if (PlayerPawn)
-        {
-            PlayerPawn->StopJumping();
-        }
+        PlayerPawn->StopJumping();
     }
 }
+
+void ABombermanPlayerController::Use()
+{
+    ABombermanCharacter* const PlayerPawn = Cast<ABombermanCharacter>(GetPawn());
+    if (PlayerPawn)
+    {
+        PlayerPawn->PlaceBomb();
+    }
+};

@@ -21,9 +21,12 @@ public:
     virtual void SetupInputComponent() override;
     // End PlayerController interface
 
+    // Movement
 	void MoveHorizontally(float Value);
     void MoveVertically(float Value);
 
+    // Actions
     void Jump();
     void StopJumping();
+    void Use();
 };
