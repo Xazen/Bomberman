@@ -61,3 +61,10 @@ Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 Bomberman.VC.db
+.idea
+cmake-build-debug
+Plugins/CLionSourceCodeAccess
+CMakeLists.txt
+BombermanCodeLitePreProcessor.txt
+Bomberman.workspace
+BombermanCodeCompletionFolders.txt

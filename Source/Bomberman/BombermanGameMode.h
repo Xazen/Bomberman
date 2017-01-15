@@ -10,6 +10,8 @@ class ABombermanGameMode : public AGameModeBase
 
 public:
 	ABombermanGameMode();
+
+	virtual void BeginPlay() override;
 };
 
 
